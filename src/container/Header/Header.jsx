@@ -4,11 +4,15 @@ import { SubHeading } from '../../components';
 import { images } from '../../constants';
 import './Header.css';
 
-const Header = () => (
-  <div className="app__header app__wrapper section__padding" id="home">
+const Header = () => {
+  const params = new URLSearchParams(window.location.search);
+  const tableNumber = params.get('table');
+
+  return(
+    <div className="app__header app__wrapper section__padding" id="home">
     <div className="app__wrapper_info">
-      <SubHeading title="Chase the new flavour" />
-      <h1 className="app__header-h1">The Key To Experience</h1>
+      <SubHeading title={`Welcome Table No. ${tableNumber}`} />
+      <h1 className="app__header-h1">Chase The New Flavour</h1>
       <p className="p__opensans" style={{ margin: '2rem 0' }}>Enjoy our complimentary snacks and beverages, thoughtfully curated for your refreshments</p>
       <button type="button" className="custom__button">Explore Menu</button>
     </div>
@@ -17,6 +21,7 @@ const Header = () => (
       <img src={images.welcome} alt="header_img" />
     </div> */}
   </div>
-);
+  );
+};
 
 export default Header;
