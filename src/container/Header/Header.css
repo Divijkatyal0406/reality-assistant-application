@@ -1,0 +1,60 @@
+.app__header{
+    background-color: var(--color-black);
+}
+
+.app__header-h1{
+    font-family: var(--color-base);
+    color: var(--color-golden);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    line-height: 97px;
+    font-size: 80px;
+
+}
+.app__header-img img {
+    width: 80%;
+}
+.custom__button {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    border-radius: 5px;
+}
+
+/* Hover Animation */
+.custom__button:hover {
+    transform: scale(1.05);
+    background-color: var(--color-golden);
+    color: var(--color-black);
+}
+
+@media screen and (min-width: 2000px) {
+    .app__header-h1 {
+        font-size: 180px;
+        line-height: 210px;
+    }
+}
+
+@media screen and (max-width: 1150px) {
+    .app__header-h1 {
+        font-size: 70px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .app__header-h1 {
+        font-size: 70px;
+        line-height: 87px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .app__header-h1 {
+        font-size: 50px;
+        line-height: 70px;
+    }
+}
