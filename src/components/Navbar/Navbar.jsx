@@ -51,7 +51,7 @@ const Navbar = () => {
           <div className="cart__overlay-content">
             <MdOutlineRestaurantMenu fontSize={27} className="overlay__close" onClick={() => setCartOverlay(false)} />
             <h2>Your Cart</h2>
-            {/* Cart items go here */}
+            {}
           </div>
         </div>
       )}
