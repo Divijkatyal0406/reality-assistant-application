@@ -1,5 +1,6 @@
 .app__header{
     background-color: var(--color-black);
+    padding: 2rem 0;
 }
 
 .app__header-h1{
@@ -25,7 +26,6 @@
     border-radius: 5px;
 }
 
-/* Hover Animation */
 .custom__button:hover {
     transform: scale(1.05);
     background-color: var(--color-golden);

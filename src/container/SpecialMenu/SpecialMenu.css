@@ -11,7 +11,6 @@
 .app__specialMenu-menu {
     width: 100%;
     margin: 2rem 0;
-
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -19,16 +18,28 @@
 }
 
 .app__specialMenu-menu_heading {
+    display: flex;
+    align-items: center;
     font-family: var(--font-base);
     font-weight: 600;
     font-size: 45px;
     line-height: 58.5px;
     letter-spacing: 0.04em;
     color: var(--color-white);
+    cursor: pointer;
 }
 
-.app__specialMenu-menu_wine,
-.app__specialMenu-menu_cocktails {
+.app__specialMenu-menu_heading p {
+    margin: 0;
+}   
+
+.dropdown-icon {
+    margin-left: 10px;
+    font-size: 1.5rem;
+    color: var(--color-golden);
+}
+
+.app__specialMenu-menu_wine, .app__specialMenu-menu_cocktails {
     flex: 1;
     width: 100%;
     flex-direction: column;
@@ -47,7 +58,6 @@
 .app__specialMenu_menu_items {
     display: flex;
     flex-direction: column;
-
     margin: 2rem 0;
     width: 100%;
 }
