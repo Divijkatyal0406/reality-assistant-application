@@ -1,12 +1,23 @@
 import React, { useState } from 'react';
 import { SubHeading, MenuItem } from '../../components';
-import { data, images } from '../../constants';
+import { data } from '../../constants';
 import './SpecialMenu.css';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 
-const SpecialMenu = () => {
+const SpecialMenu = ({ cartItems, setCartItems }) => {
   const [showBeverages, setShowBeverages] = useState(false);
   const [showSnacks, setShowSnacks] = useState(false);
+
+  const handleItemChange = (item, quantity) => {
+    const existingItem = cartItems.find(cartItem => cartItem.title === item.title);
+    if (existingItem) {
+      setCartItems(cartItems.map(cartItem =>
+        cartItem.title === item.title ? { ...cartItem, quantity } : cartItem
+      ));
+    } else {
+      setCartItems([...cartItems, { ...item, quantity }]);
+    }
+  };
 
   return (
     <div className="app__specialMenu flex__center section__padding" id="menu">
@@ -24,7 +35,7 @@ const SpecialMenu = () => {
           {showBeverages && (
             <div className="app__specialMenu_menu_items">
               {data.wines.map((wine, index) => (
-                <MenuItem key={wine.title + index} title={wine.title} price={wine.price} tags={wine.tags} />
+                <MenuItem key={wine.title + index} item={wine} onChange={handleItemChange} />
               ))}
             </div>
           )}
@@ -38,7 +49,7 @@ const SpecialMenu = () => {
           {showSnacks && (
             <div className="app__specialMenu_menu_items">
               {data.cocktails.map((cocktail, index) => (
-                <MenuItem key={cocktail.title + index} title={cocktail.title} price={cocktail.price} tags={cocktail.tags} />
+                <MenuItem key={cocktail.title + index} item={cocktail} onChange={handleItemChange} />
               ))}
             </div>
           )}
