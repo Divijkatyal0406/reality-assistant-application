@@ -2,58 +2,153 @@ import images from './images';
 
 const wines = [
   {
-    title: 'Chapel Hill Shiraz',
-    price: '$56',
-    tags: 'AU | Bottle',
+    title: 'Tea',
+    //price: '$56',
+    tags:  ' Hot ',
   },
   {
-    title: 'Catena Malbee',
-    price: '$59',
-    tags: 'AU | Bottle',
+    title: 'Hot Coffee',
+    //price: '$59',
+    tags: ' Fresh ',
   },
   {
-    title: 'La Vieillw Rose',
-    price: '$44',
-    tags: 'FR | 750 ml',
+    title: 'Cold Coffee',
+    //price: '$59',
+    tags: ' Fresh ',
   },
   {
-    title: 'Rhino Pale Ale',
-    price: '$31',
-    tags: 'CA | 750 ml',
+    title: 'Ice Tea',
+    //price: '$44',
+    tags: 'Fresh | 750 ml',
   },
   {
-    title: 'Irish Guinness',
-    price: '$26',
-    tags: 'IE | 750 ml',
+    title: 'Green Tea',
+   // price: '$31',
+    tags: 'Hot | 750 ml',
   },
+  {
+    title: 'Fresh Lime Soda',
+   // price: '$26',
+    tags: 'Fresh | 750 ml',
+  },
+  {
+    title: 'Coconut Water',
+   // price: '$26',
+    tags: 'Fresh | 750 ml',
+  },
+  {
+    title: 'Fresh Juice(Seasonal)',
+   // price: '$26',
+    tags: 'Fresh | 750 ml',
+  },
+  {
+    title: 'Chocolate Shake',
+   // price: '$26',
+    tags: 'Fresh | 750 ml',
+  },
+  {
+    title: 'Oreo Shake',
+   // price: '$26',
+    tags: 'Fresh | 750 ml',
+  },
+  {
+    title: 'Banana Shake',
+   // price: '$26',
+    tags: 'Fresh | 750 ml',
+  },
+  {
+    title: 'Pineapple Shake',
+   // price: '$26',
+    tags: 'Fresh | 750 ml',
+  },
+  {
+    title: 'Seasonal Fruit Shake',
+   // price: '$26',
+    tags: 'Fresh | 750 ml',
+  },
+
+  
+
 ];
 
 const cocktails = [
   {
-    title: 'Aperol Sprtiz',
-    price: '$20',
-    tags: 'Aperol | Villa Marchesi prosecco | soda | 30 ml',
+    title: 'French Fries',
+    //price: '$20',
+    tags: ' Masala| ',
   },
   {
-    title: "Dark 'N' Stormy",
-    price: '$16',
-    tags: 'Dark rum | Ginger beer | Slice of lime',
+    title: 'French Fries',
+    //price: '$20',
+    tags: ' Plain| ',
   },
   {
-    title: 'Daiquiri',
-    price: '$10',
-    tags: 'Rum | Citrus juice | Sugar',
+    title: 'Corn & Cheese Nuggets',
+    //price: '$20',
+    tags: ' Cheesy | Hot ',
   },
   {
-    title: 'Old Fashioned',
-    price: '$31',
-    tags: 'Bourbon | Brown sugar | Angostura Bitters',
+    title: 'Fresh Cut Fruits(Seasonal)',
+    //price: '$20',
+    tags: ' Fresh ',
   },
   {
-    title: 'Negroni',
-    price: '$26',
-    tags: 'Gin | Sweet Vermouth | Campari | Orange garnish',
+    title: "Pizza Pockets",
+    //price: '$16',
+    tags: 'Hot | Fresh',
   },
+  {
+    title: 'Veg Mayonnaise Sandwich',
+    //price: '$10',
+    tags: 'White Bread',
+  },
+  {
+    title: 'Veg Mayonnaise Sandwich',
+    //price: '$20',
+    tags: ' Brown Bread ',
+  },
+  {
+    title: 'Veg Mayonnaise  Grill Sandwich',
+    //price: '$20',
+    tags: ' Brown Bread ',
+  },
+  {
+    title: 'Veg Mayonnaise  Grill Sandwich',
+    //price: '$20',
+    tags: ' White Bread ',
+  },
+  {
+    title: 'Veg Cheese Sandwich',
+    //price: '$20',
+    tags: ' Brown Bread ',
+  },
+  {
+    title: 'Veg Cheese Sandwich',
+    //price: '$20',
+    tags: ' White Bread ',
+  },
+  {
+    title: 'Potato Bites',
+    //price: '$20',
+    tags: ' Hot | Fresh ',
+  },
+  {
+    title: 'Cheese Balls',
+    //price: '$20',
+    tags: ' Hot | Fresh ',
+  },
+  {
+    title: 'Veggie Fingers',
+    //price: '$20',
+    tags: ' Hot | Fresh ',
+  },
+  {
+    title: 'Potato Wedges',
+    //price: '$20',
+    tags: ' Hot | Fresh ',
+  },
+  
+  
 ];
 
 const awards = [
