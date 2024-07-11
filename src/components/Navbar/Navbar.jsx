@@ -52,7 +52,7 @@ const Navbar = ({ cartItems, setCartItems }) => {
             <MdOutlineRestaurantMenu fontSize={27} className="overlay__close" onClick={() => setToggleMenu(false)} />
             <ul className="app__navbar-smallscreen_links">
               <li><a href="#home" onClick={() => setToggleMenu(false)}>Home</a></li>
-              <li><a href="#about" onClick={() => setToggleMenu(false)}>About</a></li>
+              <li><a href="https://www.viraajventures.com/" onClick={() => setToggleMenu(false)}>About</a></li>
               <li><a href="#menu" onClick={() => setToggleMenu(false)}>Menu</a></li>
             </ul>
           </div>
