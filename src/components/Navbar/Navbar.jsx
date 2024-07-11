@@ -17,7 +17,7 @@ const Navbar = ({ cartItems, setCartItems }) => {
     const message = `Order Summary:\n${orderSummary}\n\nInstructions: ${instructions}`;
     
     const encodedMessage = encodeURIComponent(message);
-    const num = '9540766207';
+    const num = '+919540766207';
     const whatsappUrl = `https://api.whatsapp.com/send?phone=${num}&text=${encodedMessage}`;
 
     window.open(whatsappUrl, '_blank');
