@@ -13,7 +13,7 @@ const Navbar = ({ cartItems, setCartItems }) => {
   const cartItemCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
   const handleSendOrder = () => {
-    const orderSummary = cartItems.map(item => `${item.title} - ${item.quantity} x ${item.price}`).join('\n');
+    const orderSummary = cartItems.map(item => `${item.title} - ${item.quantity}`).join('\n');
     const message = `Order Summary:\n${orderSummary}\n\nInstructions: ${instructions}`;
     
     const encodedMessage = encodeURIComponent(message);
