@@ -8,17 +8,6 @@ const SpecialMenu = ({ cartItems, setCartItems }) => {
   const [showBeverages, setShowBeverages] = useState(false);
   const [showSnacks, setShowSnacks] = useState(false);
 
-  const handleItemChange = (item, quantity) => {
-    const existingItem = cartItems.find(cartItem => cartItem.title === item.title);
-    if (existingItem) {
-      setCartItems(cartItems.map(cartItem =>
-        cartItem.title === item.title ? { ...cartItem, quantity } : cartItem
-      ));
-    } else {
-      setCartItems([...cartItems, { ...item, quantity }]);
-    }
-  };
-
   return (
     <div className="app__specialMenu flex__center section__padding" id="menu">
       <div className="app__specialMenu-title">
@@ -35,7 +24,7 @@ const SpecialMenu = ({ cartItems, setCartItems }) => {
           {showBeverages && (
             <div className="app__specialMenu_menu_items">
               {data.wines.map((wine, index) => (
-                <MenuItem key={wine.title + index} item={wine} onChange={handleItemChange} />
+                <MenuItem key={wine.title + index} title={wine.title} price={wine.price} tags={wine.tags} cartItems={cartItems} setCartItems={setCartItems} />
               ))}
             </div>
           )}
@@ -49,7 +38,7 @@ const SpecialMenu = ({ cartItems, setCartItems }) => {
           {showSnacks && (
             <div className="app__specialMenu_menu_items">
               {data.cocktails.map((cocktail, index) => (
-                <MenuItem key={cocktail.title + index} item={cocktail} onChange={handleItemChange} />
+                <MenuItem key={cocktail.title + index} title={cocktail.title} price={cocktail.price} tags={cocktail.tags} cartItems={cartItems} setCartItems={setCartItems} />
               ))}
             </div>
           )}

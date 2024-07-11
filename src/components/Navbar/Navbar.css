@@ -254,3 +254,13 @@
 .cart__item-title {
   font-weight: bold;
 }
+
+
+.cancel__order-button {
+  background-color: #ff4d4d;
+  margin-top: 11px;
+}
+
+.cancel__order-button:hover {
+  background-color: #ff1a1a;
+}

@@ -17,13 +17,18 @@ const Navbar = ({ cartItems, setCartItems }) => {
     const message = `Order Summary:\n${orderSummary}\n\nInstructions: ${instructions}`;
     
     const encodedMessage = encodeURIComponent(message);
-    const num = '';
+    const num = '9540766207';
     const whatsappUrl = `https://api.whatsapp.com/send?phone=${num}&text=${encodedMessage}`;
 
     window.open(whatsappUrl, '_blank');
     
     setCartOverlay(false);
     setInstructions('');
+  };
+
+  const handleCancelOrder = () => {
+    setCartItems([]);
+    setCartOverlay(false);
   };
 
   return (
@@ -73,6 +78,7 @@ const Navbar = ({ cartItems, setCartItems }) => {
               placeholder="Any special instructions?"
             />
             <button className="custom__button send__order-button" onClick={handleSendOrder}>Send Order</button>
+            <button className="custom__button cancel__order-button" onClick={handleCancelOrder}>Cancel Order</button>
           </div>
         </div>
       )}
