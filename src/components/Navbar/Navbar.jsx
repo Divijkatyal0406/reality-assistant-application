@@ -40,6 +40,12 @@ const Navbar = ({ cartItems, setCartItems }) => {
         <li className="p__opensans"><a href="#home">Home</a></li>
         <li className="p__opensans"><a href="#about">About</a></li>
         <li className="p__opensans"><a href="#menu">Menu</a></li>
+        <li>
+          <div className="app__navbar-cart" onClick={() => setCartOverlay(true)}>
+            <FaShoppingCart color="#fff" fontSize={27} />
+            <span className="cart__item-count">{cartItemCount}</span>
+          </div>
+        </li>
       </ul>
       <div className="app__navbar-smallscreen">
         <div className="app__navbar-cart" onClick={() => setCartOverlay(true)}>
