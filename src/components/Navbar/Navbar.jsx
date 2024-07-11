@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { MdOutlineRestaurantMenu } from 'react-icons/md';
 import { FaShoppingCart } from 'react-icons/fa';
@@ -6,10 +6,25 @@ import images from '../../constants/images';
 import './Navbar.css';
 
 const Navbar = ({ cartItems, setCartItems }) => {
-  const [toggleMenu, setToggleMenu] = React.useState(false);
-  const [cartOverlay, setCartOverlay] = React.useState(false);
+  const [toggleMenu, setToggleMenu] = useState(false);
+  const [cartOverlay, setCartOverlay] = useState(false);
+  const [instructions, setInstructions] = useState('');
 
   const cartItemCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+
+  const handleSendOrder = () => {
+    const orderSummary = cartItems.map(item => `${item.title} - ${item.quantity} x ${item.price}`).join('\n');
+    const message = `Order Summary:\n${orderSummary}\n\nInstructions: ${instructions}`;
+    
+    const encodedMessage = encodeURIComponent(message);
+    const num = '';
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${num}&text=${encodedMessage}`;
+
+    window.open(whatsappUrl, '_blank');
+    
+    setCartOverlay(false);
+    setInstructions('');
+  };
 
   return (
     <nav className="app__navbar">
@@ -43,13 +58,21 @@ const Navbar = ({ cartItems, setCartItems }) => {
           <div className="cart__overlay-content">
             <MdOutlineRestaurantMenu fontSize={27} className="overlay__close" onClick={() => setCartOverlay(false)} />
             <h2>Your Cart</h2>
-            <ul>
+            <div className="cart__items">
               {cartItems.map(item => (
-                <li key={item.title}>
-                  {item.title} - {item.quantity} x {item.price}
-                </li>
+                <div className="cart__item" key={item.title}>
+                  <span className="cart__item-title">{item.title}</span>
+                  <span className="cart__item-quantity">{item.quantity} x {item.price}</span>
+                </div>
               ))}
-            </ul>
+            </div>
+            <textarea
+              className="cart__instructions"
+              value={instructions}
+              onChange={(e) => setInstructions(e.target.value)}
+              placeholder="Any special instructions?"
+            />
+            <button className="custom__button send__order-button" onClick={handleSendOrder}>Send Order</button>
           </div>
         </div>
       )}
