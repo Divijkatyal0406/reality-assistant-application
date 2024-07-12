@@ -37,7 +37,7 @@ const wines = [
     tags: 'Fresh | 750 ml',
   },
   {
-    title: 'Fresh Juice(Seasonal)',
+    title: 'Seasonal Fresh Juice',
    // price: '$26',
     tags: 'Fresh | 750 ml',
   },
@@ -88,9 +88,9 @@ const cocktails = [
     tags: ' Cheesy | Hot ',
   },
   {
-    title: 'Fresh Cut Fruits(Seasonal)',
+    title: 'Fresh Cut Fruits',
     //price: '$20',
-    tags: ' Fresh ',
+    tags: ' Seasonal  | Fruits ',
   },
   {
     title: "Pizza Pockets",

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { MdOutlineRestaurantMenu } from 'react-icons/md';
-import { FaShoppingCart } from 'react-icons/fa';
+import { BiDish } from "react-icons/bi";
+
 import images from '../../constants/images';
 import './Navbar.css';
 
@@ -41,9 +42,9 @@ const Navbar = ({ cartItems, setCartItems }) => {
         <li className="p__opensans"><a href="#about">About</a></li>
         <li className="p__opensans"><a href="#menu">Menu</a></li>
       </ul>
-      <div >
+      <div>
         <div className="app__navbar-cart" onClick={() => setCartOverlay(true)}>
-          <FaShoppingCart color="#fff" fontSize={27} />
+          < BiDish color="#fff" fontSize={27} />
           <span className="cart__item-count">{cartItemCount}</span>
         </div>
         <GiHamburgerMenu color="#fff" fontSize={27} onClick={() => setToggleMenu(true)} />
