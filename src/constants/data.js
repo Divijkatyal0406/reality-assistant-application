@@ -73,14 +73,14 @@ const wines = [
 
 const cocktails = [
   {
-    title: 'French Fries',
+    title: 'Masala French Fries',
     //price: '$20',
-    tags: ' Masala| ',
+    tags: ' Hot| Fresh',
   },
   {
-    title: 'French Fries',
+    title: 'Plain French Fries',
     //price: '$20',
-    tags: ' Plain| ',
+    tags: ' Hot| Fresh',
   },
   {
     title: 'Corn & Cheese Nuggets',
@@ -174,4 +174,6 @@ const awards = [
   },
 ];
 
-export default { wines, cocktails, awards };
+const MAX_QUANTITY = 5;
+
+export default { wines, cocktails, awards, MAX_QUANTITY };

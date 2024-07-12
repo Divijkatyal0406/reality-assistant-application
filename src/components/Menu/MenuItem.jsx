@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import './MenuItem.css';
+import {data} from "../../constants";
 
-const MenuItem = ({ title, price, tags, cartItems, setCartItems }) => {
-  const [itemValue, setItemValue] = useState(0);
+const MenuItem = ({ title, price, tags, cartItems, setCartItems, quantity }) => {
+  const [itemValue, setItemValue] = useState(quantity);
 
   const handleQuantityChange = (delta) => {
     const newQuantity = itemValue + delta;
+    if (newQuantity > data.MAX_QUANTITY) return;
     setItemValue(newQuantity);
 
     const updatedCart = cartItems.map(item =>

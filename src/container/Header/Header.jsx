@@ -9,7 +9,7 @@ const Header = () => {
   const tableNumber = params.get('table');
 
   return(
-    <div className="app__header app__wrapper section__padding" id="home">
+    <div className="app__header app__wrapper section__padding vh-80" id="home">
       <div className="app__wrapper_info">
         <SubHeading title={tableNumber==null?`Welcome Guest`:`Welcome Table No. ${tableNumber}`} />
         <h1 className="app__header-h1">Chase The New Flavour</h1>
