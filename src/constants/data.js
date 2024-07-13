@@ -37,7 +37,7 @@ const wines = [
     tags: 'Fresh | 750 ml',
   },
   {
-    title: 'Fresh Juice(Seasonal)',
+    title: 'Seasonal Fresh Juice',
    // price: '$26',
     tags: 'Fresh | 750 ml',
   },
@@ -73,14 +73,14 @@ const wines = [
 
 const cocktails = [
   {
-    title: 'French Fries',
+    title: 'Masala French Fries',
     //price: '$20',
-    tags: ' Masala| ',
+    tags: ' Hot| Fresh',
   },
   {
-    title: 'French Fries',
+    title: 'Plain French Fries',
     //price: '$20',
-    tags: ' Plain| ',
+    tags: ' Hot| Fresh',
   },
   {
     title: 'Corn & Cheese Nuggets',
@@ -88,9 +88,9 @@ const cocktails = [
     tags: ' Cheesy | Hot ',
   },
   {
-    title: 'Fresh Cut Fruits(Seasonal)',
+    title: 'Fresh Cut Fruits',
     //price: '$20',
-    tags: ' Fresh ',
+    tags: ' Seasonal  | Fruits ',
   },
   {
     title: "Pizza Pockets",
@@ -174,4 +174,6 @@ const awards = [
   },
 ];
 
-export default { wines, cocktails, awards };
+const MAX_QUANTITY = 5;
+
+export default { wines, cocktails, awards, MAX_QUANTITY };

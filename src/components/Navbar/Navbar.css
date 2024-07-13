@@ -141,7 +141,18 @@
   }
 }
 
+.block {
+  display: block;
+}
+
+@media screen and (min-width: 1150px) {
+  .lg\:hidden {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 1150px) {
+
   .app__navbar-links {
     display: none;
   }
@@ -258,9 +269,17 @@
 
 .cancel__order-button {
   background-color: #ff4d4d;
-  margin-top: 11px;
+  margin-top: 15px;
 }
 
 .cancel__order-button:hover {
   background-color: #ff1a1a;
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-evenly {
+  justify-content: space-evenly;
 }
