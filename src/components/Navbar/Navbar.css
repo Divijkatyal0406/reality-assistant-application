@@ -5,6 +5,9 @@
   align-items: center;
   background: var(--color-black);
   padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000; 
 }
 
 .app__navbar-logo {
@@ -108,123 +111,6 @@
   left: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 10;
-}
-
-.cart__overlay-content {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  position: relative;
-  width: 80%;
-  max-width: 400px;
-}
-
-.cart__overlay-content .overlay__close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-}
-
-@media screen and (min-width: 2000px) {
-  .app__navbar-logo img {
-    width: 210px;
-  }
-  .app__navbar-cart {
-    margin-right: 25px;
-    padding-right: 5px;
-  }
-}
-
-.block {
-  display: block;
-}
-
-@media screen and (min-width: 1150px) {
-  .lg\:hidden {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 1150px) {
-
-  .app__navbar-links {
-    display: none;
-  }
-
-  .app__navbar-smallscreen {
-    display: flex;
-  }
-
-  .app__navbar-cart {
-    margin-right: 25px;
-    padding-right: 5px;
-  }
-}
-
-@media screen and (max-width: 650px) {
-  .app__navbar {
-    padding: 1rem;
-  }
-
-  .app__navbar-cart {
-    margin-right: 25px;
-    padding-right: 5px;
-  }
-
-  .app__navbar-logo img {
-    width: 110px;
-  }
-}
-
-.cart__instructions {
-  width: 100%;
-  height: 100px;
-  margin-top: 15px;
-  padding: 10px;
-  border: 1px solid var(--color-golden);
-  border-radius: 5px;
-  background: var(--color-black);
-  color: var(--color-white);
-  font-family: inherit;
-  font-size: 14px;
-  resize: none;
-}
-
-.cart__instructions::placeholder {
-  color: #888;
-}
-
-
-.send__order-button {
-  margin-top: 15px;
-  padding: 10px 20px;
-  background-color: var(--color-primary);
-  color: var(--color-white);
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.send__order-button:hover {
-  background-color: var(--color-golden);
-  color: var(--color-black);
-}
-
-
-
-.app__navbar-cart_overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
   background: rgba(0, 0, 0, 0.9);
   z-index: 100;
   display: flex;
@@ -252,6 +138,9 @@
 .cart__items {
   margin-top: 2rem;
   margin-bottom: 1rem;
+  max-height: 300px; 
+  overflow-y: auto; 
+  padding-right: 10px; 
 }
 
 .cart__item {
@@ -266,10 +155,48 @@
   font-weight: bold;
 }
 
+.cart__instructions {
+  width: 100%;
+  height: 100px;
+  margin-top: 15px;
+  padding: 10px;
+  border: 1px solid var(--color-golden);
+  border-radius: 5px;
+  background: var(--color-black);
+  color: var(--color-white);
+  font-family: inherit;
+  font-size: 14px;
+  resize: none;
+}
+
+.cart__instructions::placeholder {
+  color: #888;
+}
+
+.send__order-button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.send__order-button:hover {
+  background-color: var(--color-golden);
+  color: var(--color-black);
+}
 
 .cancel__order-button {
   background-color: #ff4d4d;
   margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .cancel__order-button:hover {
@@ -282,4 +209,50 @@
 
 .justify-evenly {
   justify-content: space-evenly;
+}
+
+@media screen and (min-width: 2000px) {
+  .app__navbar-logo img {
+    width: 210px;
+  }
+  .app__navbar-cart {
+    margin-right: 25px;
+    padding-right: 5px;
+  }
+}
+
+.block {
+  display: block;
+}
+
+@media screen and (min-width: 1150px) {
+  .lg\:hidden {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .app__navbar-links {
+    display: none;
+  }
+  .app__navbar-smallscreen {
+    display: flex;
+  }
+  .app__navbar-cart {
+    margin-right: 25px;
+    padding-right: 5px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .app__navbar {
+    padding: 1rem;
+  }
+  .app__navbar-cart {
+    margin-right: 25px;
+    padding-right: 5px;
+  }
+  .app__navbar-logo img {
+    width: 110px;
+  }
 }
