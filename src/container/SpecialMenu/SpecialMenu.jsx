@@ -5,7 +5,6 @@ import './SpecialMenu.css';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import {getQuantity} from "../../util/helpers";
 
-
 const SpecialMenu = ({ cartItems, setCartItems }) => {
   const [showBeverages, setShowBeverages] = useState(false);
   const [showSnacks, setShowSnacks] = useState(false);

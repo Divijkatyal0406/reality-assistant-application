@@ -10,7 +10,7 @@ const Navbar = ({ cartItems, setCartItems }) => {
     const [toggleMenu, setToggleMenu] = useState(false);
     const [cartOverlay, setCartOverlay] = useState(false);
     const [instructions, setInstructions] = useState('');
-
+    
     const cartItemCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
     const handleSendOrder = () => {
@@ -28,11 +28,15 @@ const Navbar = ({ cartItems, setCartItems }) => {
 
         setCartOverlay(false);
         setInstructions('');
+        
     };
 
     const handleCancelOrder = () => {
         setCartItems([]);
         setCartOverlay(false);
+        window.location.reload();
+         
+        
     };
 
     return (
