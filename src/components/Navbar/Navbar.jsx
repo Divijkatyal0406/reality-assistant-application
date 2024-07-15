@@ -34,10 +34,13 @@ const Navbar = ({ cartItems, setCartItems }) => {
     const handleCancelOrder = () => {
         setCartItems([]);
         setCartOverlay(false);
-        window.location.reload();
+        handleReload();
          
         
     };
+    const handleReload = () => {
+        window.location.reload();
+      };
 
     return (
         <nav className="app__navbar">
