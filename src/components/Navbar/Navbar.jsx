@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { MdOutlineRestaurantMenu } from 'react-icons/md';
 import { BiDish } from "react-icons/bi";
-
+import { db } from "../../firebase";
+import { collection, addDoc } from 'firebase/firestore';
 import images from '../../constants/images';
 import './Navbar.css';
 
@@ -13,18 +14,36 @@ const Navbar = ({ cartItems, setCartItems }) => {
     
     const cartItemCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
-    const handleSendOrder = () => {
+    const handleSendOrder = async () => {
         const params = new URLSearchParams(window.location.search);
         const tableNumber = params.get('table');
+        try {
+            const order = {
+              tableNo: tableNumber,
+              status: 1,
+              specialInstructions: instructions,
+              items: cartItems.map(item => ({
+                name: item.title,
+                qty: item.quantity,
+              }))
+            };
+        
+            const docRef = await addDoc(collection(db, 'orders'), order);
+            console.log('Order ID: ', docRef.id);
+          } catch (error) {
+            console.error('Error adding document: ', error);
+          }
 
-        const orderSummary = cartItems.map(item => `${item.title} - ${item.quantity}`).join('\n');
-        const message = `Table No. ${tableNumber} Order Summary:\n${orderSummary}\n\nInstructions: ${instructions}`;
+    
 
-        const encodedMessage = encodeURIComponent(message);
-        const num = '+919540766207';
-        const whatsappUrl = `https://api.whatsapp.com/send?phone=${num}&text=${encodedMessage}`;
+        // const orderSummary = cartItems.map(item => `${item.title} - ${item.quantity}`).join('\n');
+        // const message = `Table No. ${tableNumber} Order Summary:\n${orderSummary}\n\nInstructions: ${instructions}`;
 
-        window.open(whatsappUrl, '_blank');
+        // const encodedMessage = encodeURIComponent(message);
+        // const num = '+919540766207';
+        // const whatsappUrl = `https://api.whatsapp.com/send?phone=${num}&text=${encodedMessage}`;
+
+        // window.open(whatsappUrl, '_blank');
 
         setCartOverlay(false);
         setInstructions('');
