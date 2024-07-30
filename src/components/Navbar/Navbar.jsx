@@ -36,14 +36,14 @@ const Navbar = ({ cartItems, setCartItems }) => {
 
     
 
-        // const orderSummary = cartItems.map(item => `${item.title} - ${item.quantity}`).join('\n');
-        // const message = `Table No. ${tableNumber} Order Summary:\n${orderSummary}\n\nInstructions: ${instructions}`;
+        const orderSummary = cartItems.map(item => `${item.title} - ${item.quantity}`).join('\n');
+        const message = `Table No. ${tableNumber} Order Summary:\n${orderSummary}\n\nInstructions: ${instructions}`;
 
-        // const encodedMessage = encodeURIComponent(message);
-        // const num = '+919540766207';
-        // const whatsappUrl = `https://api.whatsapp.com/send?phone=${num}&text=${encodedMessage}`;
+        const encodedMessage = encodeURIComponent(message);
+        const num = '+919540766207';
+        const whatsappUrl = `https://api.whatsapp.com/send?phone=${num}&text=${encodedMessage}`;
 
-        // window.open(whatsappUrl, '_blank');
+        window.open(whatsappUrl, '_blank');
 
         setCartOverlay(false);
         setInstructions('');
