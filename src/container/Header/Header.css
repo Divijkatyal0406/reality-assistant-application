@@ -3,6 +3,29 @@
     padding: 2rem 0;
 }
 
+.custom__button {
+    background-color: #DCCA87;
+    color: #fff;
+    padding: 1rem 2rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.custom__button:hover {
+    background-color: #C3A66F; 
+}
+
+.app__header-buttons {
+    display: flex;
+    gap: 1rem; 
+}
+
+.track-order-button {
+    margin-left: 1rem; 
+}
+  
+
 .app__header-h1{
     font-family: var(--color-base);
     color: var(--color-golden);
