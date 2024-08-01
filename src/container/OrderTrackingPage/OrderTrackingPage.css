@@ -1,0 +1,82 @@
+.track-order-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+    background-color: #000;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #b08d57; 
+  }
+  
+  .track-order-container h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #b08d57;
+  }
+  
+  .track-order-container .input {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #b08d57;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #000;
+    color: #b08d57; 
+  }
+  
+  .track-order-container .button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #000; 
+    background-color: #b08d57; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .track-order-container .button:hover {
+    background-color: #8b6a41; 
+  }
+  
+  .track-order-container .error {
+    color: #b08d57; 
+    margin-top: 10px;
+  }
+  
+  .track-order-container .order-details {
+    margin-top: 20px;
+    text-align: left;
+  }
+  
+  .track-order-container .order-details h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #b08d57; 
+  }
+  
+  .track-order-container .order-details p {
+    font-size: 1rem;
+    margin: 5px 0;
+    color: #b08d57; 
+  }
+  
+  .track-order-container .order-details ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .track-order-container .order-details ul li {
+    padding: 10px;
+    border-bottom: 1px solid #b08d57; 
+    display: flex;
+    justify-content: space-between;
+    color: #b08d57; 
+  }
+  
+  .track-order-container .order-details ul li:last-child {
+    border-bottom: none;
+  }
+  

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { db } from '../../firebase';
 import { collection, query, where, getDocs } from 'firebase/firestore';
+import './OrderTrackingPage.css';
 
 const OrderTrackingPage = () => {
   const [tableNumber, setTableNumber] = useState('');
@@ -17,7 +18,6 @@ const OrderTrackingPage = () => {
       if (querySnapshot.empty) {
         setError('No orders found for this table number.');
       } else {
-        console.log("hello")
         const orderData = querySnapshot.docs[0].data();
         setOrder(orderData);
       }
@@ -28,28 +28,42 @@ const OrderTrackingPage = () => {
     }
   };
 
+  const getStatusText = (status) => {
+    switch (status) {
+      case 1:
+        return 'Placed';
+      case 2:
+        return 'Accepted';
+      case 3:
+        return 'Preparing';
+      default:
+        return 'Delivered';
+    }
+  };
+
   return (
-    <div>
+    <div className="track-order-container">
       <h1>Track Order</h1>
       <input
         type="number"
         value={tableNumber}
         onChange={(e) => setTableNumber(e.target.value)}
         placeholder="Enter table number"
+        className="input"
       />
-      <button onClick={handleSearch} disabled={loading}>
+      <button onClick={handleSearch} disabled={loading} className="button">
         {loading ? 'Searching...' : 'Search'}
       </button>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {error && <p className="error">{error}</p>}
       {order && (
-        <div>
-          <h2 style={{color:"red"}}>Order Details</h2>
-          <p style={{color:"red"}}>Status: {order.status}</p>
-          <h3 style={{color:"red"}}>Items:</h3>
-          <ul style={{color:"red"}}>
+        <div className="order-details">
+          <h2>Order Details</h2>
+          <p>Status: {getStatusText(order.status)}</p>
+          <h3>Items:</h3>
+          <ul>
             {order.items.map((item, index) => (
               <li key={index}>
-                {item.name} - Qty: {item.qty} - Price: ${item.price}
+                {item.name} - Qty: {item.qty}
               </li>
             ))}
           </ul>
