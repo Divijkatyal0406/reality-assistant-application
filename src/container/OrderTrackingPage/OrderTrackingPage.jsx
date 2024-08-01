@@ -45,7 +45,6 @@ const OrderTrackingPage = () => {
         <div>
           <h2 style={{color:"red"}}>Order Details</h2>
           <p style={{color:"red"}}>Status: {order.status}</p>
-          <p style={{color:"red"}}>Total: ${order.total}</p>
           <h3 style={{color:"red"}}>Items:</h3>
           <ul style={{color:"red"}}>
             {order.items.map((item, index) => (
