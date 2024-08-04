@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { db } from '../../firebase';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import './OrderTrackingPage.css';
@@ -9,11 +9,17 @@ const OrderTrackingPage = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  const handleSearch = async () => {
+  useEffect(() => {
+    if (tableNumber) {
+      handleSearch(tableNumber);
+    }
+  }, []);
+
+  const handleSearch = async (tableNo) => {
     setLoading(true);
     setError('');
     try {
-      const q = query(collection(db, 'orders'), where('tableNo', '==', parseInt(tableNumber)));
+      const q = query(collection(db, 'orders'), where('tableNo', '==', parseInt(tableNo)));
       const querySnapshot = await getDocs(q);
       if (querySnapshot.empty) {
         setError('No orders found for this table number.');
@@ -51,7 +57,7 @@ const OrderTrackingPage = () => {
         placeholder="Enter table number"
         className="input"
       />
-      <button onClick={handleSearch} disabled={loading} className="button">
+      <button onClick={() => handleSearch(tableNumber)} disabled={loading} className="button">
         {loading ? 'Searching...' : 'Search'}
       </button>
       {error && <p className="error">{error}</p>}
