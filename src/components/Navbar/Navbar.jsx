@@ -17,38 +17,62 @@ const Navbar = ({ cartItems, setCartItems }) => {
     const handleSendOrder = async () => {
         const params = new URLSearchParams(window.location.search);
         const tableNumber = params.get('table');
+        const tokenQuery = query(collection(db, 'pushTokens'), where('tableNo', '==', parseInt(tableNumber)));
+        
         try {
-            const order = {
-              tableNo: parseInt(tableNumber),
-              status: 1,
-              specialInstructions: instructions,
-              items: cartItems.map(item => ({
-                name: item.title,
-                qty: item.quantity,
-              }))
-            };
-        
-            const docRef = await addDoc(collection(db, 'orders'), order);
-            console.log('Order ID: ', docRef.id);
-          } catch (error) {
-            console.error('Error adding document: ', error);
+          const tokenSnapshot = await getDocs(tokenQuery);
+          if (tokenSnapshot.empty) {
+            console.error('No push token found for this table number.');
+            return;
           }
-
-    
-
-        const orderSummary = cartItems.map(item => `${item.title} - ${item.quantity}`).join('\n');
-        const message = `Table No. ${tableNumber} Order Summary:\n${orderSummary}\n\nInstructions: ${instructions}`;
-
-        const encodedMessage = encodeURIComponent(message);
-        const num = '+919540766207';
-        const whatsappUrl = `https://api.whatsapp.com/send?phone=${num}&text=${encodedMessage}`;
-
-        window.open(whatsappUrl, '_blank');
-
-        setCartOverlay(false);
-        setInstructions('');
-        
-    };
+          const token = tokenSnapshot.docs[0].data().token;
+          
+          const order = {
+            tableNo: parseInt(tableNumber),
+            status: 1,
+            specialInstructions: instructions,
+            items: cartItems.map(item => ({
+              name: item.title,
+              qty: item.quantity,
+            }))
+          };
+          
+          const docRef = await addDoc(collection(db, 'orders'), order);
+          console.log('Order ID: ', docRef.id);
+          
+          const orderSummary = cartItems.map(item => `${item.title} - ${item.quantity}`).join('\n');
+          const message = `Table No. ${tableNumber} Order Summary:\n${orderSummary}\n\nInstructions: ${instructions}`;
+          
+          const encodedMessage = encodeURIComponent(message);
+          const num = '+919540766207';
+          const whatsappUrl = `https://api.whatsapp.com/send?phone=${num}&text=${encodedMessage}`;
+          window.open(whatsappUrl, '_blank');
+          
+          const pushMessage = {
+            to: token,
+            sound: "default",
+            title: `Table No ${tableNumber}`,
+            body: orderSummary,
+          };
+          
+          await fetch("https://exp.host/--/api/v2/push/send", {
+            method: "POST",
+            headers: {
+              host: "exp.host",
+              accept: "application/json",
+              "accept-encoding": "gzip, deflate",
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(pushMessage),
+          });
+          
+        } catch (error) {
+          console.error('Error handling order: ', error);
+        } finally {
+          setCartOverlay(false);
+          setInstructions('');
+        }
+      };
 
     const handleCancelOrder = () => {
         setCartItems([]);
