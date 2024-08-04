@@ -3,7 +3,7 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import { MdOutlineRestaurantMenu } from 'react-icons/md';
 import { BiDish } from "react-icons/bi";
 import { db } from "../../firebase";
-import { collection, addDoc } from 'firebase/firestore';
+import { collection, addDoc, getDocs } from 'firebase/firestore';
 import images from '../../constants/images';
 import './Navbar.css';
 
@@ -25,9 +25,10 @@ const Navbar = ({ cartItems, setCartItems }) => {
                 return;
             }
             const token = tokenQuery.docs[0].data().token;          
-          
+            const tableInt=parseInt(tableNumber)
+        
             const order = {
-                tableNo: parseInt(tableNumber),
+                tableNo: tableInt,
                 status: 1,
                 specialInstructions: instructions,
                 items: cartItems.map(item => ({
