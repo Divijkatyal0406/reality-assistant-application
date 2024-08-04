@@ -24,7 +24,7 @@ const Navbar = ({ cartItems, setCartItems }) => {
                 console.error('No push tokens found.');
                 return;
             }
-            const token = tokenQuery.docs[0].data().token;          
+            const token = tokenQuery.docs[0].data().token;
             const tableInt=parseInt(tableNumber)
         
             const order = {
@@ -49,7 +49,7 @@ const Navbar = ({ cartItems, setCartItems }) => {
             window.open(whatsappUrl, '_blank');
           
             const pushMessage = {
-                to: token,
+                to: token.data,
                 sound: "default",
                 title: `Table No ${tableNumber}`,
                 body: orderSummary,
