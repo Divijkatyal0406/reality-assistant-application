@@ -19,7 +19,7 @@ const Navbar = ({ cartItems, setCartItems }) => {
         const tableNumber = params.get('table');
         try {
             const order = {
-              tableNo: tableNumber,
+              tableNo: parseInt(tableNumber),
               status: 1,
               specialInstructions: instructions,
               items: cartItems.map(item => ({
